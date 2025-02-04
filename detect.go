@@ -23,8 +23,8 @@ func Detect(gemfileParser Parser) packit.DetectFunc {
 			return packit.DetectResult{}, fmt.Errorf("failed to parse Gemfile: %w", err)
 		}
 
-		if !hasPuma {
-			return packit.DetectResult{}, packit.Fail.WithMessage("puma was not found in the Gemfile")
+		if hasPuma {
+			fmt.Println("puma was found in the Gemfile")
 		}
 
 		return packit.DetectResult{
